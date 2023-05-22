@@ -1,0 +1,78 @@
+mysql> use cstudents;
+Database changed
+mysql> describe cstudents;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| regno    | int(3)      | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| gender   | varchar(1)  | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| mobileno | int(10)     | YES  |     | NULL    |       |
+| city     | varchar(15) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.03 sec)
+
+mysql> insert into cstudents('456','anirudh','M','2002-11-07','772980390','cse,);
+    '>
+    '> iooila
+    '> insert values
+    '> insert into values cstudents('456','M','2002);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''456','anirudh','M','2002-11-07','772980390','cse,);
+
+iooila
+insert values
+inser' at line 1
+mysql> insert into cstudents value('456','anirudth','M','2002-11-07','772980390','cse');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into cstudents value('459','swapna','F','2005-01-28','8342975498','ML');
+ERROR 1264 (22003): Out of range value for column 'mobileno' at row 1
+mysql> insert into cstudents value('459','swapna','F','2005-01-28','834297549','ML');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * from cstudents;
++-------+----------+--------+------------+-----------+------+
+| regno | name     | gender | dob        | mobileno  | city |
++-------+----------+--------+------------+-----------+------+
+|   235 | nani     | M      | 2003-02-10 | 830939294 | IT   |
+|   246 | raja     | M      | 2003-02-10 | 830456734 | DS   |
+|   156 | rahul    | M      | 2003-02-10 | 837456734 | ML   |
+|   456 | anirudth | M      | 2002-11-07 | 772980390 | cse  |
+|   459 | swapna   | F      | 2005-01-28 | 834297549 | ML   |
++-------+----------+--------+------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update cstudents set name='arjun' where regno='156';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * from cstudents;
++-------+----------+--------+------------+-----------+------+
+| regno | name     | gender | dob        | mobileno  | city |
++-------+----------+--------+------------+-----------+------+
+|   235 | nani     | M      | 2003-02-10 | 830939294 | IT   |
+|   246 | raja     | M      | 2003-02-10 | 830456734 | DS   |
+|   156 | arjun    | M      | 2003-02-10 | 837456734 | ML   |
+|   456 | anirudth | M      | 2002-11-07 | 772980390 | cse  |
+|   459 | swapna   | F      | 2005-01-28 | 834297549 | ML   |
++-------+----------+--------+------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> delete from cstudents set name='raja';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set name='raja'' at line 1
+mysql> delete from cstudents where name='raja';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * from cstudents;
++-------+----------+--------+------------+-----------+------+
+| regno | name     | gender | dob        | mobileno  | city |
++-------+----------+--------+------------+-----------+------+
+|   235 | nani     | M      | 2003-02-10 | 830939294 | IT   |
+|   156 | arjun    | M      | 2003-02-10 | 837456734 | ML   |
+|   456 | anirudth | M      | 2002-11-07 | 772980390 | cse  |
+|   459 | swapna   | F      | 2005-01-28 | 834297549 | ML   |
++-------+----------+--------+------------+-----------+------+
+4 rows in set (0.00 sec)
+
+mysql>
